@@ -29,6 +29,11 @@
 *.color7:      #BFBFBF
 *.color15:     #E6E6E6
 
+! background
+*.color16:     #282A36
+! selection
+*.color17:     #44475A
+
 ! ==============================================================================
 
 
@@ -62,7 +67,6 @@ URxvt.font:               xft:Firacode Nerd Font Mono:size=12,\
                           xft:Noto Sans Mono CJK SC:size=12,\
                           xft:Noto Serif CJK SC:size=12,\
                           xft:Noto Color Emoji:size=12
-URxvt.boldFont:           xft:Firacode Nerd Font Mono:Bold:size=12
 
 ! +---------------------------------------------------------------------------------------------------+
 ! | xft setting (font rendering)                                                                      |
@@ -99,7 +103,15 @@ URxvt.saveLines:          5000
 ! | urxvt-perls                                                       |
 ! | https://wiki.archlinux.org/index.php/Rxvt-unicode#Perl_extensions |
 ! +-------------------------------------------------------------------+
-URxvt.perl-ext-common:       default,url-select,tabbed,resize-font,keyboard-select
+URxvt.perl-lib: /home/ianz/.urxvt/ext/
+URxvt.perl-ext-common: keyboard-select,url-select,font-size,tabbedalt
+
+!! ketboard-select
+!! https://aur.archlinux.org/packages/urxvt-perls-git/
+URxvt.keysym.M-Escape:       perl:keyboard-select:activate
+! The following line overwrites the default Meta-s binding and allows to
+! activate keyboard-select directly in backward search mode:
+URxvt.keysym.M-s:            perl:keyboard-select:search
 
 !! url-select - Yankable URLs (no mouse)
 !! https://wiki.archlinux.org/index.php/Rxvt-unicode#Yankable_URLs_(no_mouse)
@@ -111,40 +123,29 @@ URxvt.url-select.underline:  true
 ! URxvt.matcher.rend.0:        Uline Bold fg5
 ! Alternatively, use colorUL for a #RRGGBB color. This will however color all
 ! underlined text, instead of only link matches:
-URxvt.colorUL:               S_violet
+URxvt.colorUL:               #FF79C6
 
-!! tabbed - Simple tabs
-!! https://wiki.archlinux.org/index.php/Rxvt-unicode#Simple_tabs
-!----------- ---------------------
-! Key        Description
-!----------- ---------------------
-!Shift+Down  New tab
-!Shift+Left  Go to left tab
-!Shift+Right Go to right tab
-!Ctrl+Left   Move tab to the left
-!Ctrl+Right  Move tab to the right
-!Ctrl+d      Close tab
-!---------------------------------
-! change the colors of tabs with the following:
-URxvt.tabbed.tabbar-fg:   10
-URxvt.tabbed.tabbar-bg:   0
-URxvt.tabbed.tab-fg:      7
-URxvt.tabbed.tab-bg:      0
+!! font-size - interactive font size setter
+URxvt.keysym.C-equal:        font-size:reset
+URxvt.keysym.C-question:     font-size:show
+URxvt.resize-font.step:      1.5
 
-!! resize-font - Changing font size on the fly
-!! https://aur.archlinux.org/packages/urxvt-resize-font-git/
-URxvt.keysym.C-minus:     resize-font:smaller
-URxvt.keysym.C-plus:      resize-font:bigger
-URxvt.keysym.C-equal:     resize-font:reset
-URxvt.keysym.C-question:  resize-font:show
-URxvt.resize-font.step:   1
-
-!! ketboard-select
-!! https://aur.archlinux.org/packages/urxvt-perls-git/
-URxvt.keysym.M-Escape:       perl:keyboard-select:activate
-! The following line overwrites the default Meta-s binding and allows to
-! activate keyboard-select directly in backward search mode:
-! URxvt.keysym.M-s:            perl:keyboard-select:search
+!! Tabbed perl extension for rxvt-unicode terminal emulator
+URxvt.tabbedalt.new-button: false
+URxvt.tabbedalt.tabbar-fg: 4
+URxvt.tabbedalt.tabbar-bg: 0
+URxvt.tabbedalt.tab-fg: 3
+URxvt.tabbedalt.tab-bg: 0
+URxvt.tabbedalt.active-fg: 1
+URxvt.tabbedalt.actives-fg: 1
+URxvt.tabbedalt.actived-fg: 9
+URxvt.tabbedalt.tabbar-timeouts: 10:.:4:::2:*
+URxvt.tabbedalt.tab-numbers: false
+URxvt.tabbedalt.tabcmds.1: N|workspace
+URxvt.tabbedalt.tabcmds.2: R|root|su -
+URxvt.tabbedalt.tabcmds.3: T|bashtop|bashtop
+URxvt.tabbedalt.tabcmds.4: F|ranger|ranger
+URxvt.tabbedalt.session: N
 ! ==============================================================================
 
 
@@ -174,161 +175,3 @@ URxvt.iso14755_52: false
 ! ! URxvt.keysym.M-C-c:               perl:clipboard:copy
 ! ! URxvt.keysym.M-v:                 perl:clipboard:paste
 ! ! URxvt.keysym.M-C-v:               perl:clipboard:paste_escaped
-
-
-! ==============================================================================
-! +-----------------------------------------------+
-! | The Terminus font uses the following X-names: |
-! +-----------------------------------------------+
-! -xos4-terminus-medium-r-normal--12-120-72-72-c-60-iso10646-1
-! -xos4-terminus-medium-r-normal--14-140-72-72-c-80-iso10646-1
-! -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
-! -xos4-terminus-medium-r-normal--20-200-72-72-c-100-iso10646-1
-! -xos4-terminus-medium-r-normal--22-220-72-72-c-110-iso10646-1
-! -xos4-terminus-medium-r-normal--24-240-72-72-c-120-iso10646-1
-! -xos4-terminus-medium-r-normal--28-280-72-72-c-140-iso10646-1
-! -xos4-terminus-medium-r-normal--32-320-72-72-c-160-iso10646-1
-! -xos4-terminus-bold-r-normal--12-120-72-72-c-60-iso10646-1
-! -xos4-terminus-bold-r-normal--14-140-72-72-c-80-iso10646-1
-! -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
-! -xos4-terminus-bold-r-normal--20-200-72-72-c-100-iso10646-1
-! -xos4-terminus-bold-r-normal--24-240-72-72-c-120-iso10646-1
-! -xos4-terminus-bold-r-normal--28-280-72-72-c-140-iso10646-1
-! -xos4-terminus-bold-r-normal--32-320-72-72-c-160-iso10646-1
-
-! +-------------------------+
-! | List of urxvt resources |
-! +-------------------------+
-! URxvt.termName:                       string
-! URxvt.geometry:                       geometry
-! URxvt.chdir:                          string
-! URxvt.reverseVideo:                   boolean
-! URxvt.loginShell:                     boolean
-! URxvt.multiClickTime:                 number
-! URxvt.jumpScroll:                     boolean
-! URxvt.skipScroll:                     boolean
-! URxvt.pastableTabs:                   boolean
-! URxvt.scrollstyle:                    mode
-! URxvt.scrollBar:                      boolean
-! URxvt.scrollBar_right:                boolean
-! URxvt.scrollBar_floating:             boolean
-! URxvt.scrollBar_align:                mode
-! URxvt.thickness:                      number
-! URxvt.scrollTtyOutput:                boolean
-! URxvt.scrollTtyKeypress:              boolean
-! URxvt.scrollWithBuffer:               boolean
-! URxvt.inheritPixmap:                  boolean
-! URxvt.transparent:                    boolean
-! URxvt.tintColor:                      color
-! URxvt.shading:                        number
-! URxvt.blurRadius:                     HxV
-! URxvt.fading:                         number
-! URxvt.fadeColor:                      color
-! URxvt.utmpInhibit:                    boolean
-! URxvt.urgentOnBell:                   boolean
-! URxvt.visualBell:                     boolean
-! URxvt.mapAlert:                       boolean
-! URxvt.meta8:                          boolean
-! URxvt.mouseWheelScrollPage:           boolean
-! URxvt.tripleclickwords:               boolean
-! URxvt.insecure:                       boolean
-! URxvt.cursorUnderline:                boolean
-! URxvt.cursorBlink:                    boolean
-! URxvt.pointerBlank:                   boolean
-! URxvt.background:                     color
-! URxvt.foreground:                     color
-! URxvt.color0:                         color
-! URxvt.color1:                         color
-! URxvt.color2:                         color
-! URxvt.color3:                         color
-! URxvt.color4:                         color
-! URxvt.color5:                         color
-! URxvt.color6:                         color
-! URxvt.color7:                         color
-! URxvt.color8:                         color
-! URxvt.color9:                         color
-! URxvt.color10:                        color
-! URxvt.color11:                        color
-! URxvt.color12:                        color
-! URxvt.color13:                        color
-! URxvt.color14:                        color
-! URxvt.color15:                        color
-! URxvt.colorBD:                        color
-! URxvt.colorIT:                        color
-! URxvt.colorUL:                        color
-! URxvt.colorRV:                        color
-! URxvt.underlineColor:                 color
-! URxvt.scrollColor:                    color
-! URxvt.troughColor:                    color
-! URxvt.highlightColor:                 color
-! URxvt.highlightTextColor:             color
-! URxvt.cursorColor:                    color
-! URxvt.cursorColor2:                   color
-! URxvt.pointerColor:                   color
-! URxvt.pointerColor2:                  color
-! URxvt.borderColor:                    color
-! URxvt.iconFile:                       file
-! URxvt.font:                           fontname
-! URxvt.boldFont:                       fontname
-! URxvt.italicFont:                     fontname
-! URxvt.boldItalicFont:                 fontname
-! URxvt.intensityStyles:                boolean
-! URxvt.inputMethod:                    name
-! URxvt.preeditType:                    style
-! URxvt.imLocale:                       string
-! URxvt.imFont:                         fontname
-! URxvt.title:                          string
-! URxvt.iconName:                       string
-! URxvt.saveLines:                      number
-! URxvt.buffered:                       boolean
-! URxvt.depth:                          number
-! URxvt.visual:                         number
-! URxvt.transient-for:                  windowid
-! URxvt.override-redirect:              boolean
-! URxvt.hold:                           boolean
-! URxvt.externalBorder:                 number
-! URxvt.internalBorder:                 number
-! URxvt.borderLess:                     boolean
-! URxvt.lineSpace:                      number
-! URxvt.letterSpace:                    number
-! URxvt.skipBuiltinGlyphs:              boolean
-! URxvt.pointerBlankDelay:              number
-! URxvt.backspacekey:                   string
-! URxvt.deletekey:                      string
-! URxvt.print-pipe:                     string
-! URxvt.modifier:                       modifier
-! URxvt.cutchars:                       string
-! URxvt.answerbackString:               string
-! URxvt.secondaryScreen:                boolean
-! URxvt.secondaryScroll:                boolean
-! URxvt.perl-lib:                       string
-! URxvt.perl-eval:                      perl-eval
-! URxvt.perl-ext-common:                string
-! URxvt.perl-ext:                       string
-! URxvt.iso14755:                       boolean
-! URxvt.iso14755_52:                    boolean
-! URxvt.xrm:                            string
-! URxvt.keysym.sym:                     keysym
-! URxvt.background.border:              boolean
-! URxvt.background.expr:                string
-! URxvt.background.interval:            seconds
-! URxvt.bell-command:                   string
-! URxvt.kuake.hotkey:                   string
-! URxvt.matcher.button:                 string
-! URxvt.matcher.launcher:               string
-! URxvt.matcher.launcher.*:             string
-! URxvt.matcher.pattern.*:              string
-! URxvt.matcher.rend.*:                 string
-! URxvt.remote-clipboard.fetch:         string
-! URxvt.remote-clipboard.store:         string
-! URxvt.searchable-scrollback:          string
-! URxvt.selection-autotransform.*:      string
-! URxvt.selection-pastebin.cmd:         string
-! URxvt.selection-pastebin.url:         string
-! URxvt.selection.pattern-0:            string
-! URxvt.tab-bg:                         colour
-! URxvt.tab-fg:                         colour
-! URxvt.tabbar-bg:                      colour
-! URxvt.tabbar-fg:                      colour
-! URxvt.url-launcher:                   string
-! ==============================================================================
