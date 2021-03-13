@@ -1,39 +1,34 @@
 ! ==============================================================================
-! Dracula Xresources palette
-! special
-*.foreground:  #F8F8F2
-*.background:  #282A36
-*.cursorColor: #8BE9FD
+! Custom
+! Original theme https://github.com/nathanbuchar/atom-one-dark-terminal
+*.foreground:    #ABB2BF
+*.background:    #1E2127
+*.cursorColor:   #5C6370
+*.highlightColor:#3A3F4B
 ! black
-*.color0:      #000000
-*.color8:      #4D4D4D
+*.color0:        #1E2127
+*.color8:        #5C6370
 ! red
-*.color1:      #FF5555
-*.color9:      #FF6E67
+*.color1:        #E06C75
+*.color9:        #E06C75
 ! green
-*.color2:      #50FA7B
-*.color10:     #5AF78E
+*.color2:        #98C379
+*.color10:       #98C379
 ! yellow
-*.color3:      #F1FA8C
-*.color11:     #F4F99D
+*.color3:        #D19A66
+*.color11:       #D19A66
 ! blue
-*.color4:      #BD93F9
-*.color12:     #CAA9FA
+*.color4:        #61AFEF
+*.color12:       #61AFEF
 ! magenta
-*.color5:      #FF79C6
-*.color13:     #FF92D0
+*.color5:        #C678DD
+*.color13:       #C678DD
 ! cyan
-*.color6:      #8BE9FD
-*.color14:     #9AEDFE
+*.color6:        #56B6C2
+*.color14:       #56B6C2
 ! white
-*.color7:      #BFBFBF
-*.color15:     #E6E6E6
-
-! background
-*.color16:     #282A36
-! selection
-*.color17:     #44475A
-
+*.color7:        #ABB2BF
+*.color15:       #FFFFFF
 ! ==============================================================================
 
 
@@ -132,13 +127,13 @@ URxvt.resize-font.step:      1.5
 
 !! Tabbed perl extension for rxvt-unicode terminal emulator
 URxvt.tabbedalt.new-button: false
-URxvt.tabbedalt.tabbar-fg: 4
-URxvt.tabbedalt.tabbar-bg: 0
-URxvt.tabbedalt.tab-fg: 3
+URxvt.tabbedalt.tabbar-fg: 0
+URxvt.tabbedalt.tabbar-bg: 4
+URxvt.tabbedalt.tab-fg: 4
 URxvt.tabbedalt.tab-bg: 0
-URxvt.tabbedalt.active-fg: 1
-URxvt.tabbedalt.actives-fg: 1
-URxvt.tabbedalt.actived-fg: 9
+URxvt.tabbedalt.active-fg: 3
+URxvt.tabbedalt.actives-fg: 3
+URxvt.tabbedalt.actived-fg: 3
 URxvt.tabbedalt.tabbar-timeouts: 10:.:4:::2:*
 URxvt.tabbedalt.tab-numbers: false
 URxvt.tabbedalt.tabcmds.1: N|workspace
