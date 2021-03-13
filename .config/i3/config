@@ -161,6 +161,8 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
 
 bar {
+    position bottom
+
     colors {
         background #282A36
         statusline #F8F8F2
@@ -175,7 +177,11 @@ bar {
         urgent_workspace   #FF5555 #FF5555 #F8F8F2
         binding_mode       #FF5555 #FF5555 #F8F8F2
     }
-    tray_output primary
+
+    i3bar_command i3bar
+    status_command i3status
+
+    tray_output eDP-1
 }
 ################################################################################
 
@@ -185,6 +191,7 @@ bar {
 # system control mode
 set $i3exit ~/.config/i3/scripts/i3exit
 bindsym $mod+Pause mode "$mode_system"
+bindsym $mod+Shift+e mode "$mode_system"
 set $mode_system switch_(u)ser|(e)xit|(l)ock|(s)uspend|(r)eboot|(Shift+s)hutdown
 mode "$mode_system" {
     bindsym u exec --no-startup-id $i3exit switch_user, mode "default"
@@ -255,10 +262,10 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ################################################################################################
 
 exec --no-startup-id volumeicon
-bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
+# bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
+bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
 
@@ -374,39 +381,9 @@ exec --no-startup-id clipit
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock
+exec --no-startup-id xautolock -time 60 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-
-# Start i3bar to display a workspace bar (plus the system information i3status if available)
-bar {
-    i3bar_command i3bar
-    status_command i3status
-    position bottom
-
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#   tray_output primary
-#   tray_output eDP1
-
-    bindsym button4 nop
-    bindsym button5 nop
-    workspace_buttons no
-
-    colors {
-        background #282A36
-        statusline #F8F8F2
-        separator  #44475A
-
-#       ##################|#######|#######|#######
-#       State             |border |bg.    |text
-#       ##################|#######|#######|#######
-        focused_workspace  #44475A #44475A #F8F8F2
-        active_workspace   #282A36 #44475A #F8F8F2
-        inactive_workspace #282A36 #282A36 #BFBFBF
-        urgent_workspace   #FF5555 #FF5555 #F8F8F2
-        binding_mode       #FF5555 #FF5555 #F8F8F2
-    }
-}
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
