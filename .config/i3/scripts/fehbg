@@ -1,2 +1,0 @@
-#!/bin/sh
-feh --no-fehbg --bg-fill --image-bg 'black' '/home/ianz/.config/i3/scripts/wallpaper.png' '/home/ianz/.config/i3/scripts/wallpaper.png'

@@ -121,9 +121,8 @@ URxvt.url-select.underline:  true
 URxvt.colorUL:               #FF79C6
 
 !! font-size - interactive font size setter
-URxvt.keysym.C-equal:        font-size:reset
 URxvt.keysym.C-question:     font-size:show
-URxvt.resize-font.step:      1.5
+URxvt.resize-font.step:      1
 
 !! Tabbed perl extension for rxvt-unicode terminal emulator
 URxvt.tabbedalt.new-button: false

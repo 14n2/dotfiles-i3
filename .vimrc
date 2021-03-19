@@ -1,4 +1,4 @@
-" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " +--------------------------------------+
 " | vim-plug                             |
 " | https://github.com/junegunn/vim-plug |
@@ -75,8 +75,13 @@ autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
+" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+            \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * silent NERDTreeMirror
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
 """""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""
@@ -164,7 +169,7 @@ nnoremap [w :PrevTrailingWhitespace<CR>
 " Initialize plugin system
 " Automatically executes filetype plugin indent on and syntax enable.
 call plug#end()
-" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 colorscheme onedark
 
@@ -180,9 +185,10 @@ set showcmd
 
 " Show line number
 set number
+set relativenumber
 
 " Color the column after textwidth, usually the 80th
-let &colorcolumn=join(range(81,999),",")
+let &colorcolumn=join(range(80,999),",")
 
 " Enable line wrapping
 set wrap
@@ -195,10 +201,11 @@ set mouse=a
 
 " Display whitespace characters
 set list
-set listchars=tab:>\ ,trail:•,extends:>,precedes:<,nbsp:+,eol:
+set listchars=tab:\ ,trail:,extends:,precedes:,nbsp:,eol:
 
-" Set vertical separators.
-" set fillchars=vert:│
+" Set vertical separators
+set fillchars=vert:\ 
+hi VertSplit guibg=DarkCyan
 
 " Ignore case on search
 set ignorecase
@@ -211,6 +218,8 @@ set incsearch
 
 " Don't highlight matched strings
 set nohlsearch
+" Press F4 to toggle highlighting on/off, and show current value.
+:noremap <F4> :set hlsearch! hlsearch?<CR>
 
 " The length of a tab
 " DO NOT CHANGE the default value of 8, ever.
@@ -246,5 +255,11 @@ nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bn :bn<CR>
 
-" Press F4 to toggle highlighting on/off, and show current value.
-:noremap <F4> :set hlsearch! hlsearch?<CR>
+inoremap <leader>w <Esc>:w<CR>
+nnoremap <leader>w <Esc>:w<CR>
+nnoremap <C-a> ggVG
+
+" GVIM SETTING
+if has('gui_running')
+    set guifont=Firacode\ Nerd\ Font\ Mono\ 12
+endif
