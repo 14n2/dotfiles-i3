@@ -9,6 +9,8 @@
 exec --no-startup-id ~/.config/i3/scripts/xrandr_dual_horizontal
 # wallpaper
 exec --no-startup-id ~/.config/i3/scripts/fehbg_dual
+# fcitx
+exec --no-startup-id fcitx
 ################################################################################
 
 
@@ -296,7 +298,7 @@ bindsym $mod+Shift+F3 exec gksu thunar
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-bindsym $mod+Shift+d --release exec --no-startup-id "killall dunst; exec notify-send 'restart dunst'"
+bindsym $mod+Shift+n --release exec --no-startup-id "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s

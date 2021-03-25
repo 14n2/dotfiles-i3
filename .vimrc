@@ -257,7 +257,7 @@ nnoremap <leader>bn :bn<CR>
 
 inoremap <leader>w <Esc>:w<CR>
 nnoremap <leader>w <Esc>:w<CR>
-nnoremap <C-a> ggVG
+nnoremap <C-g> ggVG
 
 " GVIM SETTING
 if has('gui_running')
