@@ -11,6 +11,8 @@ exec --no-startup-id ~/.config/i3/scripts/xrandr_dual_horizontal
 exec --no-startup-id ~/.config/i3/scripts/fehbg_dual
 # fcitx
 exec --no-startup-id fcitx
+# thunderbird
+exec --no-startup-id thunderbird
 ################################################################################
 
 
@@ -113,6 +115,9 @@ bindsym $mod+Shift+7 move container to workspace number $ws7; workspace number $
 bindsym $mod+Shift+8 move container to workspace number $ws8; workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9; workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number $ws10
+
+# Open applications on specific workspaces
+assign [class="Thunderbird"] $ws10
 ################################################################################
 
 
