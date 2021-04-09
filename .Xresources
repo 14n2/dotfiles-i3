@@ -137,7 +137,7 @@ URxvt.tabbedalt.tabbar-timeouts: 10:.:4:::2:*
 URxvt.tabbedalt.tab-numbers: false
 URxvt.tabbedalt.tabcmds.1: N|workspace
 URxvt.tabbedalt.tabcmds.2: R|root|su -
-URxvt.tabbedalt.tabcmds.3: T|bashtop|bashtop
+URxvt.tabbedalt.tabcmds.3: T|bpytop|bpytop
 URxvt.tabbedalt.tabcmds.4: F|ranger|ranger
 URxvt.tabbedalt.session: N
 ! ==============================================================================
