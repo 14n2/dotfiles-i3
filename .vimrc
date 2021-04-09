@@ -224,7 +224,7 @@ set incsearch
 " Don't highlight matched strings
 set nohlsearch
 " Press F4 to toggle highlighting on/off, and show current value.
-:noremap <F4> :set hlsearch! hlsearch?<CR>
+:noremap <leader>h :set hlsearch! hlsearch?<CR>
 
 " The length of a tab
 " DO NOT CHANGE the default value of 8, ever.
