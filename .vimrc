@@ -222,7 +222,7 @@ set smartcase
 set incsearch
 
 " Don't highlight matched strings
-set nohlsearch
+set hlsearch
 " Press F4 to toggle highlighting on/off, and show current value.
 :noremap <leader>h :set hlsearch! hlsearch?<CR>
 
