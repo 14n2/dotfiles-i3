@@ -94,7 +94,7 @@ plugins=(
          )
 
 # show vi mode
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+# VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
 
 
@@ -109,9 +109,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+#   export EDITOR="vim"
 # else
-#   export EDITOR='mvim'
+#   export EDITOR="mvim"
 # fi
 
 # Compilation flags
@@ -125,13 +125,17 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias odr='onedrive'
-alias rr='ranger'
-alias vim='nvim'
-alias feh='feh --image-bg black -Z -.'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-alias top='bpytop'
-alias so='source'
+alias odr="onedrive"
+alias rr="ranger"
+alias vim="nvim"
+alias feh="feh --image-bg black -Z -."
+alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
+alias top="bpytop"
+alias so="source"
+alias c="clear"
+# git extended alias
+alias gta="git tag -a"
+alias gpft="git push --follow-tags"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
