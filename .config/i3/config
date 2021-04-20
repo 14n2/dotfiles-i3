@@ -241,12 +241,13 @@ mode "resize" {
 
 # display setting
 set $set_xrandr ~/.config/i3/scripts/set_xrandr
-set $display dual_(v)ertical|dual_(h)orizontal|(s)olo
+set $display dual_(v)ertical|dual_(h)orizontal|(s)olo|hdm(i)
 bindsym $mod+Shift+d mode "$display"
 mode "$display" {
     bindsym v exec --no-startup-id $set_xrandr dv, mode "default"
     bindsym h exec --no-startup-id $set_xrandr dh, mode "default"
     bindsym s exec --no-startup-id $set_xrandr s, mode "default"
+    bindsym i exec --no-startup-id $set_xrandr hdmi, mode "default"
     #exit
     bindsym Return mode "default"
     bindsym Escape mode "default"
